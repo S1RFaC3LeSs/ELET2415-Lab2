@@ -119,7 +119,8 @@ void setup() {
 
 
 void loop() {
-    // put your main code here, to run repeatedly:       
+    // put your main code here, to run repeatedly:  
+    Serial.println(calcHeatIndex(91.67, 80)); 
     vTaskDelay(1000 / portTICK_PERIOD_MS);    
 }
 

@@ -18,13 +18,13 @@
                                 <VBtn class="text-subtitle-2"   density="compact"  color="primary" :variant="(route.name == 'Control')? 'tonal':'text'">Control</VBtn>
                             </RouterLink>
 
-                            <!-- <RouterLink class="route" :to="{ name: 'Live' }" >
+                            <RouterLink class="route" :to="{ name: 'Live' }" >
                                 <VBtn class="text-subtitle-2"   density="compact"  color="primary" :variant="(route.name == 'Live')? 'tonal':'text'">Live</VBtn>
-                            </RouterLink> -->
+                            </RouterLink>
 
-                            <!-- <RouterLink class="route" :to="{ name: 'Analysis' }" >
+                            <RouterLink class="route" :to="{ name: 'Analysis' }" >
                                 <VBtn class="text-subtitle-2"   density="compact"  color="primary" :variant="(route.name == 'Analysis')? 'tonal':'text'">Analysis</VBtn>
-                            </RouterLink> -->
+                            </RouterLink>
                                                                          
 
                         </VCol>
