@@ -10,7 +10,7 @@
 
 // ADD YOUR IMPORTS HERE
 #include <FastLED.h>
-#include <DHT.h>
+#include "DHT.h"
 
 
 #ifndef _WIFI_H 
@@ -51,7 +51,7 @@
 // MQTT CLIENT CONFIG  
 static const char* pubtopic      = "620146473";                    // Add your ID number here
 static const char* subtopic[]    = {"620146473_sub","/elet2415"};  // Array of Topics(Strings) to subscribe to
-static const char* mqtt_server   = "local";         // Broker IP address or Domain name as a String 
+static const char* mqtt_server   = "dbs.msjrealtms.com";         // Broker IP address or Domain name as a String 
 static uint16_t mqtt_port        = 1883;
 
 // WIFI CREDENTIALS
@@ -107,10 +107,11 @@ void setup() {
   Serial.begin(115200);  // INIT SERIAL  
 
   // INITIALIZE ALL SENSORS AND DEVICES
+  dht.begin();
   
   /* Add all other necessary sensor Initializations and Configurations here */
   LEDS.addLeds<WS2812, DATA_PIN, GRB>(leds, NUM_LEDS);
-  dht.begin();
+  
 
   initialize();     // INIT WIFI, MQTT & NTP 
   // vButtonCheckFunction(); // UNCOMMENT IF USING BUTTONS INT THIS LAB, THEN ADD LOGIC FOR INTERFACING WITH BUTTONS IN THE vButtonCheck FUNCTION
@@ -119,8 +120,7 @@ void setup() {
 
 
 void loop() {
-    // put your main code here, to run repeatedly:  
-    Serial.println(calcHeatIndex(91.67, 80)); 
+    // put your main code here, to run repeatedly:   
     vTaskDelay(1000 / portTICK_PERIOD_MS);    
 }
 
@@ -151,12 +151,12 @@ void vUpdate( void * pvParameters )  {
           // #######################################################
    
           // 1. Read Humidity and save in variable below
-          double h = 0;
-          h = dht.readHumidity();
+          //double h = 0;
+          double h = dht.readHumidity();
            
           // 2. Read temperature as Celsius   and save in variable below
-          double t = 0;
-          t = dht.readTemperature();  
+          //double t = 0;
+          double t = dht.readTemperature();  
 
 
           if(isNumber(t)){
