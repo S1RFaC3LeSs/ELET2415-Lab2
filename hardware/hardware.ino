@@ -51,7 +51,7 @@
 // MQTT CLIENT CONFIG  
 static const char* pubtopic      = "620146473";                    // Add your ID number here
 static const char* subtopic[]    = {"620146473_sub","/elet2415"};  // Array of Topics(Strings) to subscribe to
-static const char* mqtt_server   = "dbs.msjrealtms.com";         // Broker IP address or Domain name as a String 
+static const char* mqtt_server   = "www.yanacreations.com";         // Broker IP address or Domain name as a String 
 static uint16_t mqtt_port        = 1883;
 
 // WIFI CREDENTIALS
@@ -293,9 +293,9 @@ double calcHeatIndex(double Temp, double Humid){
 
     double T = Temp * 9 / 5 + 32;
 
-    double HI = c1 + (c2 * T) + (c3 * Humid) + (c4 * T * Humid) + 
-    (c5 * T * T) + (c6 * Humid * Humid) + (c7 * T * T * Humid) + 
-    (c8 * T * Humid * Humid) + (c9 * T * T * Humid * Humid);
+    double HI = c1 + (c2 * T) + (c3 * Humid) - (c4 * T * Humid) - 
+    (c5 * T * T) - (c6 * Humid * Humid) + (c7 * T * T * Humid) + 
+    c8 * T * Humid * Humid) - (c9 * T * T * Humid * Humid);
 
     return HI;
 
